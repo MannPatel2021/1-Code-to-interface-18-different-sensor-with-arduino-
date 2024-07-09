@@ -1,9 +1,0 @@
-Steps to run/upload this code:
-
-1.Download the code.
-2.Open "main.ino" file to open all the other file together.
-3.Download all the required libraries according to the code requirements.
-4.Configure the I/O pin in the code according to the connection and requirement.
-5.Uncomment the fuction in the loop fucntion to use that sensor code.
-6.Complie the code and then upload it in your Arduino board.
-7.Enjoy your project journey.
