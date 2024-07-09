@@ -43,9 +43,7 @@ HMC5883L_Simple Compass;  //Connect SCL=A5 SDA=A4
 Adafruit_BMP085 bmp;      //Connect SCL=A5 SDA=A4
 
 
-/*
------CHANGE THE PIN NUMBER OR I/O PIN AS PER THE CONNECTION / REQUIREMENT-----
-*/
+//-----CHANGE THE PIN NUMBER OR I/O PIN AS PER THE CONNECTION / REQUIREMENT-----
 #define ledpin 13       //Led Pin for led blink
 #define trigPin  11     //Trigger Pin 
 #define echoPin  12     //Echo Pin
@@ -104,9 +102,8 @@ void setup() {
   bmp.begin(); //Begin the BMP Barometer sensor Library 
 
 }
-/*
-----------PLEASE UNCOMMENT THE SENSOR WHICH YOU ARE USING WITH ARDUINO----------
-*/
+
+//----------PLEASE UNCOMMENT THE SENSOR WHICH YOU ARE USING WITH ARDUINO----------
 void loop() {
   //ledBlink();              //Uncomment to use Led blink code
   //Ultrasonic();            //Uncomment to use HC-SR04 Ultrasonic sensor code
@@ -129,9 +126,7 @@ void loop() {
 
 }
 
-/*
------FUNCTION FOR LEDBLINK-----
-*/
+//-----FUNCTION FOR LEDBLINK-----
 void ledBlink(){
   digitalWrite(ledpin, HIGH);
   Serial.print("Led ON");
@@ -141,9 +136,8 @@ void ledBlink(){
   delay(1000);
 }
 
-/*
------FUNCTION FOR HC SR-04 ULTRAASONIC SENSOR-----
-*/
+
+//-----FUNCTION FOR HC SR-04 ULTRAASONIC SENSOR-----
 void Ultrasonic() {
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
@@ -156,10 +150,7 @@ void Ultrasonic() {
   Serial.println(distance);
 }
 
-/*
------FUNCTION FOR IR SENSOR-----
-*/
-
+//-----FUNCTION FOR IR SENSOR-----
 void IRsensor(){
   unsigned int sensorStatus = digitalRead(IRSensor);
   if (sensorStatus == 1) {
@@ -169,10 +160,7 @@ void IRsensor(){
   }
 }
 
-/*
------FUNCTION FOR PIR SENSOR-----
-*/
-
+//-----FUNCTION FOR PIR SENSOR-----
 void PIRsensor(){
   int pirState = digitalRead(PIRSensor);
   if (pirState == HIGH) {
@@ -183,12 +171,7 @@ void PIRsensor(){
   }
 }
 
-/*
------FUNCTION FOR MPU6050 GYRO ACC SENSOR-----
-*/
-
-
-
+//-----FUNCTION FOR MPU6050 GYRO ACC SENSOR-----
 void Mpu6050() {
   mpu6050.update();
 
@@ -215,16 +198,11 @@ void Mpu6050() {
     Serial.print("\tangleY : ");Serial.print(mpu6050.getAngleY());
     Serial.print("\tangleZ : ");Serial.println(mpu6050.getAngleZ());
     Serial.println("=======================================================\n");
-    timer = millis();
-    
+    timer = millis(); 
   }
-
 }
 
-/*
------FUNCTION FOR LM35 TEMPERATURE SENSOR-----
-*/
-
+//-----FUNCTION FOR LM35 TEMPERATURE SENSOR-----
 void LM35Temprature() {
   int temp_adc_val;
   float temp_val;
@@ -237,10 +215,7 @@ void LM35Temprature() {
   delay(1000);
 }
 
-/*
------FUNCTION FOR HMC5883L MAGNETOMETER SENSOR-----
-*/
-
+//-----FUNCTION FOR HMC5883L MAGNETOMETER SENSOR-----
 void HMC5883LMagnoetmeter()
 {
    float heading = Compass.GetHeadingDegrees();
@@ -249,10 +224,7 @@ void HMC5883LMagnoetmeter()
    delay(1000);
 }
 
-/*
------FUNCTION FOR DHT11 TEMPERATURE HUMIDITY SENSOR-----
-*/
-
+//-----FUNCTION FOR DHT11 TEMPERATURE HUMIDITY SENSOR-----
 void DHTSensor(){
   sensors_event_t event;
   dht.temperature().getEvent(&event);
@@ -267,10 +239,7 @@ void DHTSensor(){
 }
 
 
-/*
------FUNCTION FOR SOIL MOISTURE SENSOR-----
-*/
-
+//-----FUNCTION FOR SOIL MOISTURE SENSOR-----
 void soilMoisture(){
   float moisture_percentage;
   int sensor_analog;
@@ -283,10 +252,7 @@ void soilMoisture(){
 }
 
 
-/*
------FUNCTION FOR BMP180 BAROMETER SENSOR-----
-*/
-
+//-----FUNCTION FOR BMP180 BAROMETER SENSOR-----
 void BMP180Barometer(){
   Serial.print("Temoerature = ");
   Serial.print(bmp.readTemperature());
@@ -313,11 +279,7 @@ void BMP180Barometer(){
 }
 
 
-/*
------FUNCTION FOR MQ135 AIR QUALITY SENSOR-----
-*/
-
-
+//-----FUNCTION FOR MQ135 AIR QUALITY SENSOR-----
 void MQ135AirQualitySensor(){
   int sensordata = analogRead(MQ135);
   Serial.print("Air Quality: ");
@@ -326,10 +288,7 @@ void MQ135AirQualitySensor(){
   delay(100);
 }
 
-/*
------FUNCTION FOR MQ2 SMKODE DETECTION SENSOR-----
-*/
-
+//-----FUNCTION FOR MQ2 SMKODE DETECTION SENSOR-----
 void MQ2SmokeSensor(){
   float sensorvalue = analogRead(MQ2);
   Serial.print("MQ2 value : ");
@@ -341,11 +300,7 @@ void MQ2SmokeSensor(){
   delay(1000);
 }
 
-
-/*
------FUNCTION FOR MQ3 ALCHOL DETECTION SENSOR-----
-*/
-
+//-----FUNCTION FOR MQ3 ALCHOL DETECTION SENSOR-----
 void MQ3AlcholDetectionSensor(){
   float sensorV = digitalRead(MQ3);
   Serial.print("MQ3 Value: ");
@@ -360,9 +315,7 @@ void MQ3AlcholDetectionSensor(){
   delay(1000);
 }
 
-/*
------FUNCTION FOR LM393 LDR SENSOR SENSOR-----
-*/
+//-----FUNCTION FOR LM393 LDR SENSOR SENSOR-----
 void LM383LDRSensor(){
   unsigned int SensorValue1 = analogRead(LDR);
   Serial.print("LDR Sensor : ");
@@ -370,10 +323,7 @@ void LM383LDRSensor(){
   delay(1000);
 }
 
-/*
------FUNCTION FOR LM393 SOUND DETECTION SENSOR-----
-*/
-
+//-----FUNCTION FOR LM393 SOUND DETECTION SENSOR-----
 void SoundDetector(){
   unsigned long lastSound = 0;
   int soundData = digitalRead(SoundSensor);
@@ -385,11 +335,7 @@ void SoundDetector(){
   }
 }
 
-
-/*
------FUNCTION FOR FLAME SENSOR-----
-*/
-
+//-----FUNCTION FOR FLAME SENSOR-----
 void flameSensor(){
   long flamedata = digitalRead(FlameSensor);
   if (digitalRead(FlameSensor)){
@@ -400,11 +346,7 @@ void flameSensor(){
   delay(1000);
 }
 
-
-/*
------FUNCTION FOR WATER LEVEL SENSOR-----
-*/
-
+//-----FUNCTION FOR WATER LEVEL SENSOR-----
 void WaterLevel(){
   int waterValue = analogRead(WaterLevelSensor);
   if (waterValue > 570) {
@@ -415,11 +357,7 @@ void WaterLevel(){
   delay(1000);
 }
 
-
-/*
------FUNCTION FOR HALL SENSOR-----
-*/
-
+//-----FUNCTION FOR HALL SENSOR-----
 void HallEffectSensor(){
   int val = digitalRead(HallSensor);
   if(val == HIGH){
