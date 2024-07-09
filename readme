@@ -50,7 +50,7 @@ Installation
 --->Clone the repository:
 
 Copy code
-git clone https://github.com/yourusername/sensor-interface-project.git
+git clone https://github.com/MannPatel2021/1-Code-to-interface-18-different-sensor-with-arduino-.git
 cd sensor-interface-project
 Open the project in Arduino IDE:
 
